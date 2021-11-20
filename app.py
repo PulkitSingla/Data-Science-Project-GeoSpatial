@@ -1,8 +1,3 @@
-from apps import (
-    home,
-    housing,
-    timelapse,
-)
 import streamlit as st
 from multiapp import MultiApp
 from home import Home
