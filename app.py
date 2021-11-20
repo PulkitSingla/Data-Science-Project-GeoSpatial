@@ -8,7 +8,7 @@ from multiapp import MultiApp
 from home import Home
 from housing import Housing
 from timelapse import Timelapse
-from
+
 
 st.set_page_config(layout="wide")
 
