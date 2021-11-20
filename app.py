@@ -4,6 +4,7 @@ from apps import (
     home,
     housing,
     timelapse,
+    rois
 )
 
 st.set_page_config(layout="wide")
