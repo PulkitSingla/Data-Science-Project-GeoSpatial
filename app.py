@@ -1,3 +1,4 @@
+import leafmap.foliumap as leafmap
 import datetime
 import os
 import pathlib
@@ -12,6 +13,36 @@ from leafmap.common import hex_to_rgb
 from multiapp import MultiApp
 
 st.set_page_config(layout="wide")
+
+
+def app():
+    st.title("Streamlit for Geospatial Applications")
+
+    st.markdown(
+        """
+        This multi-page web app demonstrates various interactive web apps created using [streamlit](https://streamlit.io) and open-source mapping libraries, 
+        such as [leafmap](https://leafmap.org), [geemap](https://geemap.org), [pydeck](https://deckgl.readthedocs.io), and [kepler.gl](https://docs.kepler.gl/docs/keplergl-jupyter).
+            """
+    )
+
+    st.info("Click on the left sidebar menu to navigate to the different apps.")
+
+    st.subheader("Timelapse of Satellite Imagery")
+    st.markdown(
+        """
+        The following timelapse animations were created using the Timelapse web app. Click `Create Timelapse` on the left sidebar menu to create your own timelapse for any location around the globe.
+    """
+    )
+
+    row1_col1, row1_col2 = st.columns(2)
+    with row1_col1:
+        st.image("https://github.com/giswqs/data/raw/main/timelapse/spain.gif")
+        st.image("https://github.com/giswqs/data/raw/main/timelapse/las_vegas.gif")
+
+    with row1_col2:
+        st.image("https://github.com/giswqs/data/raw/main/timelapse/goes.gif")
+        st.image("https://github.com/giswqs/data/raw/main/timelapse/fire.gif")
+
 
 STREAMLIT_STATIC_PATH = pathlib.Path(st.__path__[0]) / "static"
 # We create a downloads directory within the streamlit static asset directory
@@ -213,7 +244,7 @@ def get_saturday(in_date):
     return sat
 
 
-def app():
+def app2():
 
     st.title("U.S. Real Estate Data and Market Trends")
     st.markdown(
@@ -467,7 +498,9 @@ def app():
         elif scale == "Zip":
             st.dataframe(gdf[["GEOID10"] + show_cols])
 
+
 apps = MultiApp()
 
-apps.add_app("U.S. Real Estate Data", app())
+apps.add_app("Home", app())
+apps.add_app("U.S. Real Estate Data", app2())
 apps.run()
