@@ -9,7 +9,9 @@ import geopandas as gpd
 import streamlit as st
 import leafmap.colormaps as cm
 from leafmap.common import hex_to_rgb
+from multiapp import MultiApp
 
+st.set_page_config(layout="wide")
 
 STREAMLIT_STATIC_PATH = pathlib.Path(st.__path__[0]) / "static"
 # We create a downloads directory within the streamlit static asset directory
@@ -464,3 +466,8 @@ def app():
             st.dataframe(gdf[["NAME", "CBSAFP"] + show_cols])
         elif scale == "Zip":
             st.dataframe(gdf[["GEOID10"] + show_cols])
+
+apps = MultiApp()
+
+apps.add_app("U.S. Real Estate Data", app())
+apps.run()
