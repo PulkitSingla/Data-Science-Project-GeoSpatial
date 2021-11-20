@@ -7,7 +7,7 @@ import streamlit as st
 import geemap.colormaps as cm
 import geemap.foliumap as geemap
 from datetime import date
-from .rois import *
+from rois import *
 
 
 @st.cache
