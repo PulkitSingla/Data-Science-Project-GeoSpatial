@@ -1,6 +1,7 @@
 import streamlit as st
 from multiapp import MultiApp
-from apps import (
+from apps import App
+from App import (
     home,
     housing,
     timelapse,
@@ -10,14 +11,14 @@ from apps import (
 st.set_page_config(layout="wide")
 
 
-apps = MultiApp()
+App = MultiApp()
 
 # Add all your application here
 
-apps.add_app("Home", home.app)
-apps.add_app("Create Timelapse", timelapse.app)
-apps.add_app("U.S. Real Estate Data", housing.app)
+App.add_app("Home", home.app)
+App.add_app("Create Timelapse", timelapse.app)
+App.add_app("U.S. Real Estate Data", housing.app)
 
 
 # The main app
-apps.run()
+App.run()
